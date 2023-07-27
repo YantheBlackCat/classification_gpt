@@ -21,7 +21,7 @@ def build_files(data_path, tokenized_data_path,full_tokenizer, min_length, max_l
         label[data["label"]] = 1
         labels.append(label)
         lines.append(data["sentence"])
-    lines = [line.replace('\n', ' [SEP] ') for line in lines]  # 用[SEP]表示换行, 段落之间使用SEP表示段落结束
+    lines = [line.replace('\n', ' [SEP] ') for line in lines]  
     if not os.path.exists(tokenized_data_path):
         os.mkdir(tokenized_data_path)
     lines = [line for line in lines if len(line) > min_length ]
@@ -41,6 +41,6 @@ def build_files(data_path, tokenized_data_path,full_tokenizer, min_length, max_l
     with open(tokenized_data_path + 'label.json', 'w') as fi:
         json.dump(labels, fi)
     with open(tokenized_data_path + 'tokenized_data.json', 'w') as f:
-        json.dump(train_data, f) # 这里最终的数据是中间加上了空格的，但是我这里是没有的。
+        json.dump(train_data, f) 
     print('finish raw data loading')
 
