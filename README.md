@@ -1,1 +1,1 @@
-# SortingGPT
+# classification_GPT
